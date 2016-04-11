@@ -21,18 +21,20 @@ public interface UserService extends AbstractDomainObjectService<User> {
     public @Nullable User getUserByEmail(@Nonnull String email);
 
     /**
+     * Finding user by Id
      *
      * @param id
      *          Id of the user
-     * @return Finding user by Id
+     * @return found user or <code>null</code>
      */
     public @Nullable User getById(@Nonnull String id);
 
     /**
+     * Finding all users
      *
-     * @param users
-     *          Finding all users
-     * @return set of all users
+     * @param users object of class User
+     *
+     * @return set of users
      */
     public @Nullable Set<User> getAll(User users);
 
