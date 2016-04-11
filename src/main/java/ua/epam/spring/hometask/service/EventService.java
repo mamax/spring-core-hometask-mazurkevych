@@ -29,7 +29,7 @@ public interface EventService extends AbstractDomainObjectService<Event> {
      *
      * @return found event or <code>null</code>
      */
-    public @Nullable Event getById(@Nonnull Long id);
+    public @Nullable Event getById(@Nonnull String id);
 
     /**
      * Getting all events from the system
