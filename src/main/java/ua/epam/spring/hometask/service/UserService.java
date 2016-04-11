@@ -27,10 +27,10 @@ public interface UserService extends AbstractDomainObjectService<User> {
      *          Id of the user
      * @return found user or <code>null</code>
      */
-    public @Nullable User getById(@Nonnull String id);
+    public @Nullable User getById(@Nonnull Long id);
 
     /**
-     * Finding all users
+     * Getting all users from the system
      *
      * @param users object of class User
      *
