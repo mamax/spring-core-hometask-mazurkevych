@@ -5,6 +5,8 @@ import javax.annotation.Nullable;
 
 import ua.epam.spring.hometask.domain.User;
 
+import java.util.Optional;
+
 /**
  * @author Yuriy_Tkach
  */
@@ -17,6 +19,7 @@ public interface UserService extends AbstractDomainObjectService<User> {
      *            Email of the user
      * @return found user or <code>null</code>
      */
-    public @Nullable User getUserByEmail(@Nonnull String email);
+    public @Nullable
+    Optional<User> getUserByEmail(@Nonnull String email);
 
 }
