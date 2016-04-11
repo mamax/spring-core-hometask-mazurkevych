@@ -23,20 +23,18 @@ public interface EventService extends AbstractDomainObjectService<Event> {
     public @Nullable Event getByName(@Nonnull String name);
 
     /**
-     * Finding event by Id
      *
-     * @param id Id of the event
-     *
-     * @return found event or <code>null</code>
+     * @param id
+     *          Id of the event
+     * @return Finding event by Id
      */
     public @Nullable Event getById(@Nonnull String id);
 
     /**
-     * Getting all events from the system
      *
-     * @param events object of class Event
-     *
-     * @return Set of events
+     * @param events
+     *          Getting all events from the system
+     * @return set of all events
      */
     public @Nullable Set<Event> getAll(Event events);
 
