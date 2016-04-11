@@ -1,15 +1,12 @@
 package ua.epam.spring.hometask.service;
 
-import ua.epam.spring.hometask.domain.Event;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Set;
+
+import ua.epam.spring.hometask.domain.Event;
 
 /**
- * @author Maksym_Mazurkevych
+ * @author Yuriy_Tkach
  */
 public interface EventService extends AbstractDomainObjectService<Event> {
 
@@ -22,33 +19,7 @@ public interface EventService extends AbstractDomainObjectService<Event> {
      */
     public @Nullable Event getByName(@Nonnull String name);
 
-    /**
-     *
-     * @param id
-     *          Id of the event
-     * @return Finding event by Id
-     */
-    public @Nullable Event getById(@Nonnull String id);
-
-    /**
-     *
-     * @param events
-     *          Getting all events from the system
-     * @return set of all events
-     */
-    public @Nullable Set<Event> getAll(Event events);
-
-    /**
-     * Saves event
-     */
-    public void save();
-
-    /**
-     * Removes event
-     */
-    public void remove();
-
-    /**
+    /*
      * Finding all events that air on specified date range
      * 
      * @param from Start date
@@ -57,16 +28,16 @@ public interface EventService extends AbstractDomainObjectService<Event> {
      * 
      * @return Set of events
      */
-     public @Nonnull Set<Event> getForDateRange(@Nonnull LocalDate from,
-     @Nonnull LocalDate to);
+    // public @Nonnull Set<Event> getForDateRange(@Nonnull LocalDate from,
+    // @Nonnull LocalDate to);
 
-    /**
+    /*
      * Return events from 'now' till the the specified date time
      * 
      * @param to End date time inclusive
      * s
      * @return Set of events
      */
-     public @Nonnull Set<Event> getNextEvents(@Nonnull LocalDateTime to);
+    // public @Nonnull Set<Event> getNextEvents(@Nonnull LocalDateTime to);
 
 }
