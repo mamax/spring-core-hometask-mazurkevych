@@ -41,7 +41,7 @@ public class StaticEventDaoImpl implements EventDao {
     }
 
     @Override
-    public Collection<Event> findAll() {
+    public Collection<Event> getAll() {
         return eventMap.values();
     }
 }

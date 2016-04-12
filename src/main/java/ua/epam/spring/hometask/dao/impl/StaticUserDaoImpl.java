@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import ua.epam.spring.hometask.dao.UserDao;
 import ua.epam.spring.hometask.domain.User;
 
-import javax.annotation.Nonnull;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,29 +23,25 @@ public class StaticUserDaoImpl implements UserDao {
     }
 
     @Override
-    public User insert(User object) {
+    public User save(User object) {
         userMap.put(object.getId(), object);
         return object;
     }
 
-    @Nonnull
     @Override
     public Optional<User> getUserByEmail(String email) {
         return userMap.values().stream()
-                .filter(u -> u.getEmail().equals(email))
-                .findFirst();
+                .filter(u -> u.getEmail().equals(email)).findFirst();
     }
 
     @Override
-    public User destroy(User object) {
+    public void remove(User object) {
         userMap.remove(object.getId(), object);
-        return object;
     }
 
     @Override
-    public Collection<User> findAll() {
+    public Collection<User> getAll() {
         return userMap.values();
     }
-
 
 }
