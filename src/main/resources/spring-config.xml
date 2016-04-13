@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
  		http://www.springframework.org/schema/beans
  		http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+    <context:annotation-config />
+    <context:component-scan base-package="ua.epam.spring.hometask"/>
+
+    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImpl"/>
+
+    <bean id="userService" class="ua.epam.spring.hometask.service.impl.UserServiceImpl"/>
+
+    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImpl"/>
+
+    <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.AuditoriumServiceImpl"/>
+
+    <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl"/>
 
 </beans>
