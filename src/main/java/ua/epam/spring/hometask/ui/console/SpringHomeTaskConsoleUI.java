@@ -1,6 +1,7 @@
 package ua.epam.spring.hometask.ui.console;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import ua.epam.spring.hometask.domain.*;
 import ua.epam.spring.hometask.service.AuditoriumService;
 import ua.epam.spring.hometask.service.BookingService;
@@ -30,7 +31,7 @@ public class SpringHomeTaskConsoleUI {
     }
 
     private void initContext() {
-        throw new IllegalStateException("Please, add Spring context initialization logic here");
+         context = new ClassPathXmlApplicationContext("file:src/main/resources/spring-config.xml");
     }
 
     private void run() {
@@ -46,10 +47,10 @@ public class SpringHomeTaskConsoleUI {
     }
 
     private void fillInitialData() {
-        UserService userService = context.getBean(UserService.class);
-        EventService eventService = context.getBean(EventService.class);
-        AuditoriumService auditoriumService = context.getBean(AuditoriumService.class);
-        BookingService bookingService = context.getBean(BookingService.class);
+        UserService userService = context.getBean("userService" , UserService.class);
+        EventService eventService = context.getBean("eventService", EventService.class);
+        AuditoriumService auditoriumService = context.getBean("auditoriumService", AuditoriumService.class);
+        BookingService bookingService = context.getBean("bookingService", BookingService.class);
         
         Auditorium auditorium = auditoriumService.getAll().iterator().next();
         if (auditorium == null) {
