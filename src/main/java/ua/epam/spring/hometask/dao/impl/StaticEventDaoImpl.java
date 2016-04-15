@@ -8,7 +8,6 @@ import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Created by Maksym_Mazurkevych on 4/11/2016.
@@ -20,8 +19,13 @@ public class StaticEventDaoImpl implements EventDao {
 
     @Nullable
     @Override
-    public Optional<Event> getByName(String name) {
-        return eventMap.values().stream().filter(u -> u.getName().equals(name)).findFirst();
+    public Event getByName(String name) {
+        for(Event event:eventMap.values()){
+            if(event.getName().equals(name)){
+                return event;
+            }
+        }
+        return null;
     }
 
     @Override

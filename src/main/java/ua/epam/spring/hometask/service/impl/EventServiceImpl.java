@@ -8,7 +8,6 @@ import ua.epam.spring.hometask.service.EventService;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 /**
  * Created by Maksym_Mazurkevych on 4/11/2016.
@@ -19,14 +18,13 @@ public class EventServiceImpl extends AbstractServiceImpl<Event> implements Even
     @Autowired
     private EventDao eventDao;
 
-    public EventServiceImpl(EventDao dao) {
+    public EventServiceImpl() {
         super();
-        this.setDao(dao);
     }
 
     @Nullable
     @Override
-    public Optional<Event> getByName(@Nonnull String name) {
+    public Event getByName(@Nonnull String name) {
         return eventDao.getByName(name);
     }
 

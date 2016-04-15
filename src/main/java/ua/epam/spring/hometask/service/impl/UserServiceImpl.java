@@ -8,7 +8,6 @@ import ua.epam.spring.hometask.service.UserService;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
-import java.util.Optional;
 
 /**
  * Created by Maksym_Mazurkevych on 4/11/2016.
@@ -19,14 +18,13 @@ public class UserServiceImpl extends AbstractServiceImpl<User> implements UserSe
     @Autowired
     private UserDao userDao;
 
-    public UserServiceImpl(UserDao dao) {
+    public UserServiceImpl() {
         super();
-        this.setDao(dao);
     }
 
     @Nullable
     @Override
-    public Optional<User> getUserByEmail(@Nonnull String email) {
+    public User getUserByEmail(@Nonnull String email) {
         return userDao.getUserByEmail(email);
     }
 

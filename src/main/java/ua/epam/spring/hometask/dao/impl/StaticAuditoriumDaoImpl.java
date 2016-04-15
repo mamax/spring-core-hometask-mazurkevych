@@ -3,10 +3,11 @@ package ua.epam.spring.hometask.dao.impl;
 import org.springframework.stereotype.Component;
 import ua.epam.spring.hometask.dao.AuditoriumDao;
 import ua.epam.spring.hometask.domain.Auditorium;
+import ua.epam.spring.hometask.domain.User;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Set;
 @Component
 public class StaticAuditoriumDaoImpl implements AuditoriumDao {
 
-    private static Map<Auditorium, String> auditoriumMap = new HashMap<>();
+    private static Map<Auditorium, List<User>> auditoriumMap = new HashMap<>();
 
     @Override
     public Set<Auditorium> getAll() {
@@ -23,7 +24,12 @@ public class StaticAuditoriumDaoImpl implements AuditoriumDao {
     }
 
     @Override
-    public Optional<Auditorium> getByName(String name) {
-        return auditoriumMap.keySet().stream().filter(u -> u.getName().equals(name)).findFirst();
+    public Auditorium getByName(String name) {
+        for(Auditorium auditorium:auditoriumMap.keySet()){
+            if (auditorium.getName().equals(name)){
+                return auditorium;
+            }
+        }
+        return null;
     }
 }

@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 import ua.epam.spring.hometask.dao.UserDao;
 import ua.epam.spring.hometask.domain.User;
 
+import javax.annotation.Nullable;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 /**
  * Created by Maksym_Mazurkevych on 4/11/2016.
@@ -28,10 +28,15 @@ public class StaticUserDaoImpl implements UserDao {
         return object;
     }
 
+    @Nullable
     @Override
-    public Optional<User> getUserByEmail(String email) {
-        return userMap.values().stream()
-                .filter(u -> u.getEmail().equals(email)).findFirst();
+    public User getUserByEmail(String email) {
+        for(User user:userMap.values()){
+            if(user.getEmail().equals(email)){
+                return user;
+            }
+        }
+        return null;
     }
 
     @Override
