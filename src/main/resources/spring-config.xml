@@ -13,8 +13,6 @@
 
     <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImpl"/>
 
-    <bean id="auditoriumService" class="ua.epam.spring.hometask.service.impl.AuditoriumServiceImpl"/>
-
     <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl"/>
 
     <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DiscountServiceImpl">
