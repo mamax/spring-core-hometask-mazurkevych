@@ -47,10 +47,10 @@ public class SpringHomeTaskConsoleUI {
     }
 
     private void fillInitialData() {
-        UserService userService = context.getBean("userService" , UserService.class);
-        EventService eventService = context.getBean("eventService", EventService.class);
-        AuditoriumService auditoriumService = context.getBean("auditoriumService", AuditoriumService.class);
-        BookingService bookingService = context.getBean("bookingService", BookingService.class);
+        UserService userService = context.getBean(UserService.class);
+        EventService eventService = context.getBean(EventService.class);
+        AuditoriumService auditoriumService = context.getBean(AuditoriumService.class);
+        BookingService bookingService = context.getBean(BookingService.class);
         
         Auditorium auditorium = auditoriumService.getAll().iterator().next();
         if (auditorium == null) {

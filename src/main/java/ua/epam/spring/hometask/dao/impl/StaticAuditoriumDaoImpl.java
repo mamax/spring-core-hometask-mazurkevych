@@ -1,13 +1,12 @@
 package ua.epam.spring.hometask.dao.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ua.epam.spring.hometask.dao.AuditoriumDao;
 import ua.epam.spring.hometask.domain.Auditorium;
-import ua.epam.spring.hometask.domain.User;
+import ua.epam.spring.hometask.service.conf.AuditoriumConfiguration;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,16 +15,19 @@ import java.util.Set;
 @Component
 public class StaticAuditoriumDaoImpl implements AuditoriumDao {
 
-    private static Map<Auditorium, List<User>> auditoriumMap = new HashMap<>();
+    private static Set<Auditorium> auditoriumSet = new HashSet<>();
+
+    @Autowired
+    private AuditoriumConfiguration auditoriumConfiguration;
 
     @Override
     public Set<Auditorium> getAll() {
-        return auditoriumMap.keySet();
+        return new HashSet(auditoriumConfiguration.auditoriumsList());
     }
 
     @Override
     public Auditorium getByName(String name) {
-        for(Auditorium auditorium:auditoriumMap.keySet()){
+        for(Auditorium auditorium:auditoriumSet){
             if (auditorium.getName().equals(name)){
                 return auditorium;
             }
