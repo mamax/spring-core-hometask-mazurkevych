@@ -9,13 +9,4 @@
        <context:annotation-config />
        <context:component-scan base-package="ua.epam.spring.hometask"/>
 
-    <bean id="userService" class="ua.epam.spring.hometask.service.impl.UserServiceImpl"/>
-
-    <bean id="eventService" class="ua.epam.spring.hometask.service.impl.EventServiceImpl"/>
-
-    <bean id="bookingService" class="ua.epam.spring.hometask.service.impl.BookingServiceImpl"/>
-
-    <bean id="discountService" class="ua.epam.spring.hometask.service.impl.DiscountServiceImpl">
-    </bean>
-
 </beans>
