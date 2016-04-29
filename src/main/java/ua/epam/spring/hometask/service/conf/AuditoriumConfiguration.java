@@ -8,10 +8,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import org.springframework.core.env.Environment;
 import ua.epam.spring.hometask.domain.Auditorium;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Created by Maksym_Mazurkevych on 4/26/2016.
@@ -44,6 +41,12 @@ public class AuditoriumConfiguration {
         auditorium.setNumberOfSeats(Integer.valueOf(strNumberOfSeats));
         auditorium.setVipSeats(integerSet);
         return auditorium;
+    }
+
+    @Bean
+    public Random luckyRandom()
+    {
+        return new Random();
     }
 
     @Bean
